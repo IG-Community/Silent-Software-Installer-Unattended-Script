@@ -4,7 +4,7 @@
 
 Version: 3.5.0
 
-###**Description:**
+**Description:**
 The Silent Software Installer is an unattended script that automates the installation of several software applications. It provides a menu-driven interface that allows you to choose which software to install without any user interaction. The script supports the installation of the following software:
 
 1. Mozilla Firefox
@@ -16,7 +16,7 @@ The Silent Software Installer is an unattended script that automates the install
 
 The script checks if each software is already installed on the system and skips the installation if it is detected. Otherwise, it looks for the installation files in the specified directory and installs the software silently.
 
-###**Usage:**
+###Usage:
 1. Run the script in a PowerShell environment.
 2. The script will display a menu with options for different installation configurations.
 3. Select the desired option by entering the corresponding number.
