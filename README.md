@@ -60,11 +60,11 @@ Version: 3.5.0
 
 ## Beschreibung
 
-Der Silent Software Installer ist ein unbeaufsich􀆟gtes Skript, das die Installation verschiedener Softwareanwendungen
-automa􀆟siert.
-Es bietet eine menügesteuerte Oberfläche, die es Ihnen ermöglicht, die zu installierende So􀅌ware ohne jegliche
+Der Silent Software Installer ist ein unbeaufsichtigtes Skript, das die Installation verschiedener Softwareanwendungen
+automatisiert.
+Es bietet eine menügesteuerte Oberfläche, die es Ihnen ermöglicht, die zu installierende Software ohne jegliche
 Benutzerinteraktion auszuwählen.
-Das Skript unterstützt die Installa􀆟on der folgenden So􀅌ware:
+Das Skript unterstützt die Installa􀆟on der folgenden Software:
 
 1. Mozilla Firefox
 2. Google Chrome
@@ -98,7 +98,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien 
 ## Versionsgeschichte
 - Version 3.5.0: Aktualisierte Menüop􀆟onen.
 - Version 3.0.0: Code-Überarbeitung mit neuen Funk􀆟onen: Software-Installationsprüfung und Dateierkennung
-- Version 2.0.0: Menüoption und Unterstützung für Oracle Java Run􀆟me Environment hinzugefügt
+- Version 2.0.0: Menüoption und Unterstützung für Oracle Java Runtime Environment hinzugefügt
 - Version 1.0.0: Erste Veröffentlichung mit Unterstützung für Firefox, Chrome, Thunderbird, VLC und Adobe Reader DC Installationen.
 
 Bei Fragen oder Support wenden Sie sich bite an den Skriptautor.
