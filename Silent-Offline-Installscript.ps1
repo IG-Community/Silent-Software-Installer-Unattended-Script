@@ -40,9 +40,9 @@ $Firefox = {
   
 $Chrome = {
   Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
-  Write-Host "Google Chrome...                   " -ForegroundColor Yellow -NoNewline
-  
-  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Chrome" }) {
+  $chromePath = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty '(Default)'
+
+  if ($chromePath -ne $null) {
       Write-Host "| Software is already installed" -ForegroundColor Green
   }  
   else {
