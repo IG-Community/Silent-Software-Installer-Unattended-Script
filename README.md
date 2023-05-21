@@ -1,49 +1,52 @@
 English:
 
-**Silent Software Installer | Unattended Script**
+# Silent Software Installer | Unattended Script
 
-Version: 3.5.0
+**Version:** 3.5.0
 
-**Description:**
+## Description
+
 The Silent Software Installer is an unattended script that automates the installation of several software applications. It provides a menu-driven interface that allows you to choose which software to install without any user interaction. The script supports the installation of the following software:
 
-1. Mozilla Firefox
-2. Google Chrome
-3. Mozilla Thunderbird
-4. VLC Media Player
-5. Adobe Acrobat Reader DC
-6. Oracle Java Runtime Environment (optional)
+- Mozilla Firefox
+- Google Chrome
+- Mozilla Thunderbird
+- VLC Media Player
+- Adobe Acrobat Reader DC
+- Oracle Java Runtime Environment (optional)
 
-The script checks if each software is already installed on the system and skips the installation if it is detected. Otherwise, it looks for the installation files in the specified directory and installs the software
-silently.
+The script checks if each software is already installed on the system and skips the installation if it is detected. Otherwise, it looks for the installation files in the specified directory and installs the software silently.
 
-**Usage:***
+## Usage
+
 1. Run the script in a PowerShell environment.
 2. The script will display a menu with options for different installation configurations.
 3. Select the desired option by entering the corresponding number.
 4. The script will install the selected software silently without any further user interaction.
 5. Once the installation process is completed, a confirmation message will be displayed.
 
-**Menu Options:**
-1. Unattended Install without Java: Installs all software except Java.
-2. Unattended Install without Java and Thunderbird: Installs all software except Java and Thunderbird.
-3. Unattended Install with Java: Installs all software including Java.
-4. Unattended Install with Java but without Thunderbird: Installs all software including Java, but excludes Thunderbird.
-0. Quit: Exits the script.
+## Menu Options
 
-**Notes:**
-- The script assumes that the installation files for each software are located in the specified directory (`.\Setups\`).
+- Unattended Install without Java: Installs all software except Java.
+- Unattended Install without Java and Thunderbird: Installs all software except Java and Thunderbird.
+- Unattended Install with Java: Installs all software including Java.
+- Unattended Install with Java but without Thunderbird: Installs all software including Java, but excludes Thunderbird.
+- Quit: Exits the script.
+
+## Notes
+
+- The script assumes that the installation files for each software are located in the specified directory (.\Setups\).
 - If an installation file is not found, an error message will be displayed.
 - The script checks if each software is already installed using the registry information.
 
-**Disclaimer:**
+## Disclaimer
+
 This script is provided as-is and without warranty. Please ensure that you have the necessary legal rights and permissions to install the software applications using this script.
 
-**Version History:**
-- Version 3.5.0: Updated menu options.
-- Version 3.0.0: Code overhaul with new features: software installation check and file recognition 
-- Version 2.0.0: Added menu option and support for Oracle Java Runtime Environment 
-- Version 1.0.0: First Release with support for Firefox, Chrome, Thunderbird, VLC, and Adobe Reader DC installations.
+## Version History
+
+- Version 3.5.0: Added support for Oracle Java Runtime Environment installation and updated menu options.
+- Version 3.0.0: Initial release with support for Firefox, Chrome, Thunderbird, VLC, and Adobe Reader DC installations.
 
 For any questions or support, please contact the script author.
 
