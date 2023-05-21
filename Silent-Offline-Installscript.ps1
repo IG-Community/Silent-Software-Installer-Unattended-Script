@@ -1,7 +1,10 @@
-$host.ui.RawUI.WindowTitle = "Silent Software Installer"
-$line = "****************************************************************************************************************"
-$Display1 ="
-  _________.__.__                 __    ________   _____  _____.__  .__               
+$host.ui.RawUI.WindowTitle = "Silent software installer | Unattended Script"
+[Console]::WindowWidth=101;
+[Console]::Windowheight=27;
+[Console]::setBufferSize(101,27) #width,height
+$Display = {
+Write-Host "====================================================================================================" -ForegroundColor White
+Write-Host "  _________.__.__                 __    ________   _____  _____.__  .__               
  /   _____/|__|  |   ____   _____/  |_  \_____  \_/ ____\/ ____\  | |__| ____   ____  
  \_____  \ |  |  | _/ __ \ /    \   __\  /   |   \   __\\   __\|  | |  |/    \_/ __ \ 
  /        \|  |  |_\  ___/|   |  \  |   /    |    \  |   |  |  |  |_|  |   |  \  ___/ 
@@ -12,49 +15,247 @@ $Display1 ="
 |   |/    \ /  ___/\   __\__  \ |  | |  |  /  ___// ___\_  __ \  \____ \   __\        
 |   |   |  \\___ \  |  |  / __ \|  |_|  |__\___ \\  \___|  | \/  |  |_> >  |          
 |___|___|  /____  > |__| (____  /____/____/____  >\___  >__|  |__|   __/|__|          
-         \/     \/            \/               \/     \/         |__|               
-"
+         \/     \/            \/               \/     \/         |__|                        v3.5.0" -ForegroundColor Red
+Write-Host "====================================================================================================
+"  
+}
 
-Write-Host "$line" -ForegroundColor Gray
-Write-Host "$Display1" -ForegroundColor Blue
-Write-Host "$line" -ForegroundColor Gray
-sleep 2
+$Firefox = {
+  Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
+  Write-Host "Mozilla Firefox...                 " -ForegroundColor Yellow -NoNewline
+  
+  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Firefox" }) {
+      Write-Host "| Software is already installed" -ForegroundColor Green
+  }  
+  else {
+      if (Test-Path .\Setups\Firefox*.exe -PathType Leaf) {
+          Start-Process -Wait -FilePath .\Setups\Firefox*.exe -Argument "-ms -ma" -PassThru | Out-Null
+          Write-Host "| Completed!" -ForegroundColor Green
+      }
+      else {
+          Write-Host "| ERROR - Installation file not found" -ForegroundColor Red            
+      }
+  }    
+}
+  
+$Chrome = {
+  Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
+  Write-Host "Google Chrome...                   " -ForegroundColor Yellow -NoNewline
+  
+  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Chrome" }) {
+      Write-Host "| Software is already installed" -ForegroundColor Green
+  }  
+  else {
+      if (Test-Path .\Setups\chrome*.exe -PathType Leaf) {
+          Start-Process -Wait -FilePath .\Setups\chrome*.exe -Argument "/silent /install" -PassThru | Out-Null
+          Write-Host "| Completed!" -ForegroundColor Green
+      }
+      else {
+          Write-Host "| ERROR - Installation file not found" -ForegroundColor Red            
+      }
+  }    
+}
+  
+$Thunderbird = {
+  Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
+  Write-Host "Mozilla Thunderbird...             " -ForegroundColor Yellow -NoNewline
+  
+  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Chrome" }) {
+      Write-Host "| Software is already installed" -ForegroundColor Green
+  }  
+  else {
+      if (Test-Path .\Setups\thunderbird*.exe -PathType Leaf) {
+          Start-Process -Wait -FilePath .\Setups\thunderbird*.exe -Argument "/S /quiet" -PassThru | Out-Null
+          Write-Host "| Completed!" -ForegroundColor Green
+      }
+      else {
+          Write-Host "| ERROR - Installation file not found" -ForegroundColor Red            
+      }
+  }    
+}
+  
+$VLC = {
+  Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
+  Write-Host "VLC Media Player...                " -ForegroundColor Yellow -NoNewline
+  
+  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "VLC" }) {
+      Write-Host "| Software is already installed" -ForegroundColor Green
+  }  
+  else {
+      if (Test-Path .\Setups\vlc*.exe -PathType Leaf) {
+          Start-Process -Wait -FilePath .\Setups\vlc*.exe -Argument "/S /L=1031" -PassThru | Out-Null
+          Write-Host "| Completed!" -ForegroundColor Green
+      }
+      else {
+          Write-Host "| ERROR - Installation file not found" -ForegroundColor Red            
+      }
+  }    
+}
+  
+$AdobeReaderDC = {
+  Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
+  Write-Host "Adobe Acrobat Reader DC...         " -ForegroundColor Yellow -NoNewline
+  
+  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Adobe Acrobat" }) {
+      Write-Host "| Software is already installed" -ForegroundColor Green
+  }  
+  else {
+      if (Test-Path .\Setups\AcroRdrDC*.exe -PathType Leaf) {
+          Start-Process -Wait -FilePath .\Setups\AcroRdrDC*.exe -Argument "/sAll /rs /msi EULA_ACCEPT=YES" -PassThru | Out-Null
+          Write-Host "| Completed!" -ForegroundColor Green
+      }
+      else {
+          Write-Host "| ERROR - Installation file not found" -ForegroundColor Red            
+      }
+  }    
+}
 
-Write-Host "
-*****************************************************
-*                                                   *
-*              Software installation !              *
-*                                                   *
-*****************************************************
-" -ForegroundColor Cyan
+$Java = {
+  Write-Host "  Installing software: " -ForegroundColor Red -nonewline
+  Write-Host "Oracle Java Runtime Environment... " -ForegroundColor Yellow -nonewline
+  if(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -Match "Java" }) {
+    Write-Host "| software is already installed" -ForegroundColor Green
+  }  
+  else {
+      if(Test-Path .\Setups\jre*.exe -PathType Leaf) {
+        Start-Process -Wait -FilePath .\Setups\jre*.exe -Argument "/s" -PassThru | Out-Null
+        Write-Host "| Completed!" -ForegroundColor Green
+     }
+     else {
+      Write-Host "| ERROR - installation file not found" -ForegroundColor Red            
+        }
+    } 
+  }  
 
-    Write-Host "Installing Mozilla Firefox...            " -ForegroundColor Red -nonewline
-    Start-Process -Wait -FilePath .\Setups\Firefox*.exe -Argument "-ms -ma" -PassThru | Out-Null
-    Write-Host "| Completed!" -ForegroundColor Green
+$End = {
+  Write-Host "
+ ##################################################################################################
+ ########################## The installation process has been completed! ##########################
+ ##################################################################################################" -ForegroundColor Green
+  }  
 
-    Write-Host "Installing Google Chrome...              " -ForegroundColor Red -nonewline
-    Start-Process -Wait -FilePath .\Setups\Chrome*.exe -Argument "/silent /install" -PassThru | Out-Null
-    Write-Host "| Completed!" -ForegroundColor Green 
 
-    Write-Host "Installing Mozilla Thunderbird...        " -ForegroundColor Red -nonewline
-    Start-Process -Wait -FilePath .\Setups\Thunderbird*.exe -Argument "/S /quiet" -PassThru | Out-Null
-    Write-Host "| Completed!" -ForegroundColor Green
-     
-    Write-Host "Installing VLC Media Player...           " -ForegroundColor Red -nonewline
-    Start-Process -Wait -FilePath .\Setups\vlc*.exe -Argument "/S /L=1031" -PassThru | Out-Null
-    Write-Host "| Completed!" -ForegroundColor Green
+function menu {
+  Invoke-Command -ScriptBlock $Display
+  Write-Host " ###################### Unattended menu ######################" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow
+  Write-Host " #" -ForegroundColor Yellow -NoNewLine
+  Write-Host "  1: Unattended Install without Java                       " -ForegroundColor Cyan -NoNewLine
+  Write-Host "#" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow
+  Write-Host " #" -ForegroundColor Yellow -NoNewLine
+  Write-Host "  2: Unattended Install without Java and Thunderbird       " -ForegroundColor Cyan -NoNewLine
+  Write-Host "#" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow
+  Write-Host " #" -ForegroundColor Yellow -NoNewLine
+  Write-Host "  3: Unattended Install with Java                          " -ForegroundColor Cyan -NoNewLine
+  Write-Host "#" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow
+  Write-Host " #" -ForegroundColor Yellow -NoNewLine
+  Write-Host "  4: Unattended Install with Java but without Thunderbird  " -ForegroundColor Cyan -NoNewLine
+  Write-Host "#" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow
+  Write-Host " #############################################################" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow  
+  Write-Host " #" -ForegroundColor Yellow -NoNewLine        
+  Write-Host "  0: Quit                                                  " -ForegroundColor Magenta -NoNewLine
+  Write-Host "#" -ForegroundColor Yellow
+  Write-Host " #                                                           #" -ForegroundColor Yellow
+  Write-Host " #############################################################" -ForegroundColor Yellow
+  Write-Host
+  $actions = "0"
+  while ($actions -notin "0..4") {
+  $actions = Read-Host -Prompt '     What you want to do?'
+      if ($actions -in 0..4) {
+          if ($actions -eq 0) {
+              exit
+          }
+          if ($actions -eq 1) {
+            $host.ui.RawUI.WindowTitle = "Silent software installation without Java | Unattended Script"
+            Clear-Host 
+            Invoke-Command -ScriptBlock $Display
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Firefox
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Chrome
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Thunderbird
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $VLC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $AdobeReaderDC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $End
+            Start-Sleep 3
+            exit
+          }
 
-    Write-Host "Installing Adobe Acrobat Reader DC...    " -ForegroundColor Red -nonewline
-    Start-Process -Wait -FilePath .\Setups\AcroRdrDC*.exe -Argument "/sAll /rs /msi EULA_ACCEPT=YES" -PassThru | Out-Null
-    Write-Host "| Completed!" -ForegroundColor Green
-sleep 2
+          if ($actions -eq 2) {
+            $host.ui.RawUI.WindowTitle = "Silent software installation without Java and Thunderbird | Unattended Script"
+            Clear-Host 
+            Invoke-Command -ScriptBlock $Display
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Firefox
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Chrome
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $VLC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $AdobeReaderDC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Java
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $End
+            Start-Sleep 3
+            exit
+            }
 
-Write-Host "
-*****************************************************
-*                                                   *
-*    The installation process has been completed    *
-*                                                   *
-*****************************************************
-" -ForegroundColor Green
+          if ($actions -eq 3) {
+            $host.ui.RawUI.WindowTitle = "Silent software installation with Java | Unattended Script"
+            Clear-Host 
+            Invoke-Command -ScriptBlock $Display
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Firefox
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Chrome
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Thunderbird
+            Start-Sleep 1            
+            Invoke-Command -ScriptBlock $VLC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $AdobeReaderDC            
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Java
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $End
+            Start-Sleep 3
+            exit
+            } 
 
-sleep 2
+          if ($actions -eq 4) {
+            $host.ui.RawUI.WindowTitle = "Silent software installation with Java but without Thunderbird | Unattended Script"
+            Clear-Host 
+            Invoke-Command -ScriptBlock $Display
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Firefox
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Chrome
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $VLC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $AdobeReaderDC
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $Java
+            Start-Sleep 1
+            Invoke-Command -ScriptBlock $End
+            Start-Sleep 3
+            exit
+            }     
+            menu
+        }
+        else {
+            menu
+        }
+    }
+}
+menu
