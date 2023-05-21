@@ -50,7 +50,7 @@ This script is provided as-is and without warranty. Please ensure that you have 
 
 For any questions or support, please contact the script author.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Deutsch:
 
@@ -74,7 +74,7 @@ Das Skript unterstützt die Installa􀆟on der folgenden Software:
 6. Oracle Java Runtime Environment (optional)
 
 Das Skript prüft, ob die jeweilige Software bereits auf dem System installiert ist, und überspringt die Installation, wenn sie erkannt wird.
-Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien und installiert die So􀅌ware unbemerkt.
+Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien und installiert die Software unbemerkt.
 
 ## Verwendung
 1. Führen Sie die Silent_installer.exe aus.
@@ -96,7 +96,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien 
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige So􀅌ware bereits installiert ist."
 
 ## Versionsgeschichte
-- Version 3.5.0: Aktualisierte Menüop􀆟onen.
+- Version 3.5.0: Aktualisierte Menüoptionen.
 - Version 3.0.0: Code-Überarbeitung mit neuen Funktionen: Software-Installationsprüfung und Dateierkennung
 - Version 2.0.0: Menüoption und Unterstützung für Oracle Java Runtime Environment hinzugefügt
 - Version 1.0.0: Erste Veröffentlichung mit Unterstützung für Firefox, Chrome, Thunderbird, VLC und Adobe Reader DC Installationen.
