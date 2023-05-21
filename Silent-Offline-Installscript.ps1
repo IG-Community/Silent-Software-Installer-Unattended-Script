@@ -136,6 +136,7 @@ $End = {
 
 
 function menu {
+  Clear-Host
   Invoke-Command -ScriptBlock $Display
   Write-Host " ###################### Unattended menu ######################" -ForegroundColor Yellow
   Write-Host " #                                                           #" -ForegroundColor Yellow
@@ -158,15 +159,15 @@ function menu {
   Write-Host " #############################################################" -ForegroundColor Yellow
   Write-Host " #                                                           #" -ForegroundColor Yellow  
   Write-Host " #" -ForegroundColor Yellow -NoNewLine        
-  Write-Host "  0: Quit                                                  " -ForegroundColor Magenta -NoNewLine
+  Write-Host "  0: Quit                                       5: Readme  " -ForegroundColor Magenta -NoNewLine
   Write-Host "#" -ForegroundColor Yellow
   Write-Host " #                                                           #" -ForegroundColor Yellow
   Write-Host " #############################################################" -ForegroundColor Yellow
   Write-Host
   $actions = "0"
-  while ($actions -notin "0..4") {
-  $actions = Read-Host -Prompt '     What you want to do?'
-      if ($actions -in 0..4) {
+  while ($actions -notin "0..5") {
+  $actions = Read-Host -Prompt '    What you want to do?'
+      if ($actions -in 0..5) {
           if ($actions -eq 0) {
               exit
           }
@@ -250,7 +251,13 @@ function menu {
             Invoke-Command -ScriptBlock $End
             Start-Sleep 3
             exit
-            }     
+            }
+          if ($actions -eq 5) {
+            Start-Process "https://github.com/TrelLyX/Silent-Offline-Install-Script#readme"
+            menu  
+          }
+            exit
+                             
             menu
         }
         else {
