@@ -47,14 +47,14 @@ This script is provided as-is and without warranty. Please ensure that you have 
 
 For any questions or support, please contact the script author.
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Deutsch:
 
 Version: 3.5.0
 
 **Beschreibung:**
-Der Silent Software Installer ist ein unbeaufsich􀆟gtes Skript, das die Installation verschiedener So􀅌wareanwendungen
+Der Silent Software Installer ist ein unbeaufsich􀆟gtes Skript, das die Installation verschiedener Softwareanwendungen
 automa􀆟siert.
 Es bietet eine menügesteuerte Oberfläche, die es Ihnen ermöglicht, die zu installierende So􀅌ware ohne jegliche
 Benutzerinteraktion auszuwählen.
@@ -66,16 +66,16 @@ Das Skript unterstützt die Installa􀆟on der folgenden So􀅌ware:
 4. VLC-Media Player
 5. Adobe Acrobat Reader DC
 6. Oracle Java Runtime Environment (optional)
-7. 
-Das Skript prüft, ob die jeweilige So􀅌ware bereits auf dem System installiert ist, und überspringt die Installation, wenn sie erkannt wird.
+
+Das Skript prüft, ob die jeweilige Software bereits auf dem System installiert ist, und überspringt die Installation, wenn sie erkannt wird.
 Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien und installiert die So􀅌ware unbemerkt.
 
 **Verwendung:**
 1. Führen Sie die Silent_installer.exe aus.
-2. Das Skript zeigt ein Menü mit Op􀆟onen für verschiedene Installa􀆟onskonfigura􀆟onen an.
+2. Das Skript zeigt ein Menü mit Optionen für verschiedene Installationskonfigurationen an.
 3. Wählen Sie die gewünschte Op􀆟on aus, indem Sie die entsprechende Nummer eingeben.
-4. Das Skript installiert die ausgewählte So􀅌ware im Hintergrund, ohne dass der Benutzer eingreifen muss.
-5. Sobald der Installa􀆟onsvorgang abgeschlossen ist, wird eine Bestä􀆟gungsmeldung angezeigt.
+4. Das Skript installiert die ausgewählte Software im Hintergrund, ohne dass der Benutzer eingreifen muss.
+5. Sobald der Installationsvorgang abgeschlossen ist, wird eine Bestätigungsmeldung angezeigt.
 
 **Menü Optionen:**
 1. Unbeaufsichtigte Installation ohne Java.
