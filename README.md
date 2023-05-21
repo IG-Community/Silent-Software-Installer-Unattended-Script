@@ -97,7 +97,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien 
 
 ## Versionsgeschichte
 - Version 3.5.0: Aktualisierte Menüop􀆟onen.
-- Version 3.0.0: Code-Überarbeitung mit neuen Funk􀆟onen: Software-Installationsprüfung und Dateierkennung
+- Version 3.0.0: Code-Überarbeitung mit neuen Funktionen: Software-Installationsprüfung und Dateierkennung
 - Version 2.0.0: Menüoption und Unterstützung für Oracle Java Runtime Environment hinzugefügt
 - Version 1.0.0: Erste Veröffentlichung mit Unterstützung für Firefox, Chrome, Thunderbird, VLC und Adobe Reader DC Installationen.
 
