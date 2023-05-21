@@ -64,7 +64,7 @@ Der Silent Software Installer ist ein unbeaufsichtigtes Skript, das die Installa
 automatisiert.
 Es bietet eine menügesteuerte Oberfläche, die es Ihnen ermöglicht, die zu installierende Software ohne jegliche
 Benutzerinteraktion auszuwählen.
-Das Skript unterstützt die Installa􀆟on der folgenden Software:
+Das Skript unterstützt die Installation der folgenden Software:
 
 1. Mozilla Firefox
 2. Google Chrome
@@ -74,7 +74,7 @@ Das Skript unterstützt die Installa􀆟on der folgenden Software:
 6. Oracle Java Runtime Environment (optional)
 
 Das Skript prüft, ob die jeweilige Software bereits auf dem System installiert ist, und überspringt die Installation, wenn sie erkannt wird.
-Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien und installiert die Software unbemerkt.
+Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien und installiert die Software unbemerkt.
 
 ## Verwendung
 1. Führen Sie die Silent_installer.exe aus.
@@ -91,7 +91,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien 
 0. Beenden: Beendet das Skript.
 
 ## Hinweise
-- Das Skript geht davon aus, dass sich die Installationsdateien für jede So􀅌ware im angegebenen Verzeichnis (`.\Setups\`) befinden.
+- Das Skript geht davon aus, dass sich die Installationsdateien für jede Software im angegebenen Verzeichnis (`.\Setups\`) befinden.
 - Wenn eine Installationsdatei nicht gefunden wird, wird eine Fehlermeldung angezeigt.
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige So􀅌ware bereits installiert ist."
 
