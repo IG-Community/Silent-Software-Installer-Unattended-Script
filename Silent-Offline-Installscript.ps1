@@ -60,7 +60,7 @@ $Thunderbird = {
   Write-Host "  Installing software: " -ForegroundColor Red -NoNewline
   Write-Host "Mozilla Thunderbird...             " -ForegroundColor Yellow -NoNewline
   
-  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Chrome" }) {
+  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Thunderbird" }) {
       Write-Host "| Software is already installed" -ForegroundColor Green
   }  
   else {
