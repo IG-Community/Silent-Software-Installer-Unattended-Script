@@ -78,21 +78,21 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien 
 5. Sobald der Installa􀆟onsvorgang abgeschlossen ist, wird eine Bestä􀆟gungsmeldung angezeigt.
 
 **Menü Optionen:**
-1. Unbeaufsich􀆟gte Installation ohne Java.
-2. Unbeaufsich􀆟gte Installation ohne Java und Thunderbird.
-3. Unbeaufsich􀆟gte Installation mit Java.
-4. Unbeaufsich􀆟gte Installation mit Java, aber ohne Thunderbird.
+1. Unbeaufsichtigte Installation ohne Java.
+2. Unbeaufsichtigte Installation ohne Java und Thunderbird.
+3. Unbeaufsichtigte Installation mit Java.
+4. Unbeaufsichtigte Installation mit Java, aber ohne Thunderbird.
 0. Beenden: Beendet das Skript.
 
 **Hinweise:**
-- Das Skript geht davon aus, dass sich die Installa􀆟onsdateien für jede So􀅌ware im angegebenen Verzeichnis (`.\Setups\`) befinden.
-- Wenn eine Installa􀆟onsdatei nicht gefunden wird, wird eine Fehlermeldung angezeigt.
+- Das Skript geht davon aus, dass sich die Installationsdateien für jede So􀅌ware im angegebenen Verzeichnis (`.\Setups\`) befinden.
+- Wenn eine Installationsdatei nicht gefunden wird, wird eine Fehlermeldung angezeigt.
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige So􀅌ware bereits installiert ist."
 
 **Versionsgeschichte:**
 - Version 3.5.0: Aktualisierte Menüop􀆟onen.
-- Version 3.0.0: Code-Überarbeitung mit neuen Funk􀆟onen: So􀅌ware-Installa􀆟onsprüfung und Dateierkennung
-- Version 2.0.0: Menüop􀆟on und Unterstützung für Oracle Java Run􀆟me Environment hinzugefügt
+- Version 3.0.0: Code-Überarbeitung mit neuen Funk􀆟onen: Software-Installationsprüfung und Dateierkennung
+- Version 2.0.0: Menüoption und Unterstützung für Oracle Java Run􀆟me Environment hinzugefügt
 - Version 1.0.0: Erste Veröffentlichung mit Unterstützung für Firefox, Chrome, Thunderbird, VLC und Adobe Reader DC Installationen.
 
 Bei Fragen oder Support wenden Sie sich bite an den Skriptautor.
