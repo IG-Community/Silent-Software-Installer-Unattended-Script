@@ -1,4 +1,4 @@
-English:
+# English:
 
 # Silent Software Installer | Unattended Script
 
@@ -52,11 +52,14 @@ For any questions or support, please contact the script author.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Deutsch:
+# Deutsch:
+
+# Silent Software Installer | Unattended Script
 
 Version: 3.5.0
 
-**Beschreibung:**
+## Beschreibung
+
 Der Silent Software Installer ist ein unbeaufsich􀆟gtes Skript, das die Installation verschiedener Softwareanwendungen
 automa􀆟siert.
 Es bietet eine menügesteuerte Oberfläche, die es Ihnen ermöglicht, die zu installierende So􀅌ware ohne jegliche
@@ -73,26 +76,26 @@ Das Skript unterstützt die Installa􀆟on der folgenden So􀅌ware:
 Das Skript prüft, ob die jeweilige Software bereits auf dem System installiert ist, und überspringt die Installation, wenn sie erkannt wird.
 Andernfalls sucht es im angegebenen Verzeichnis nach den Installa􀆟onsdateien und installiert die So􀅌ware unbemerkt.
 
-**Verwendung:**
+## Verwendung
 1. Führen Sie die Silent_installer.exe aus.
 2. Das Skript zeigt ein Menü mit Optionen für verschiedene Installationskonfigurationen an.
 3. Wählen Sie die gewünschte Op􀆟on aus, indem Sie die entsprechende Nummer eingeben.
 4. Das Skript installiert die ausgewählte Software im Hintergrund, ohne dass der Benutzer eingreifen muss.
 5. Sobald der Installationsvorgang abgeschlossen ist, wird eine Bestätigungsmeldung angezeigt.
 
-**Menü Optionen:**
+## Menü Optionen 
 1. Unbeaufsichtigte Installation ohne Java.
 2. Unbeaufsichtigte Installation ohne Java und Thunderbird.
 3. Unbeaufsichtigte Installation mit Java.
 4. Unbeaufsichtigte Installation mit Java, aber ohne Thunderbird.
 0. Beenden: Beendet das Skript.
 
-**Hinweise:**
+## Hinweise
 - Das Skript geht davon aus, dass sich die Installationsdateien für jede So􀅌ware im angegebenen Verzeichnis (`.\Setups\`) befinden.
 - Wenn eine Installationsdatei nicht gefunden wird, wird eine Fehlermeldung angezeigt.
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige So􀅌ware bereits installiert ist."
 
-**Versionsgeschichte:**
+## Versionsgeschichte
 - Version 3.5.0: Aktualisierte Menüop􀆟onen.
 - Version 3.0.0: Code-Überarbeitung mit neuen Funk􀆟onen: Software-Installationsprüfung und Dateierkennung
 - Version 2.0.0: Menüoption und Unterstützung für Oracle Java Run􀆟me Environment hinzugefügt
