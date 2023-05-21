@@ -204,8 +204,6 @@ function menu {
             Start-Sleep 1
             Invoke-Command -ScriptBlock $AdobeReaderDC
             Start-Sleep 1
-            Invoke-Command -ScriptBlock $Java
-            Start-Sleep 1
             Invoke-Command -ScriptBlock $End
             Start-Sleep 3
             exit
