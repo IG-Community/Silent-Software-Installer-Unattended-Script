@@ -50,6 +50,20 @@ This script is provided as-is and without warranty. Please ensure that you have 
 
 For any questions or support, please contact the script author.
 
+### Download the Programs:
+
+Mozilla Firefox: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
+
+Mozilla Thunderbird: https://download.mozilla.org/?product=thunderbird-latest&os=win64&lang=en-US
+
+Google Chrome [Standalone] : https://www.google.com/intl/de/chrome/thank-you.html?standalone=1&statcb=0&installdataindex=empty&defaultbrowser=0
+
+VLC - Media Player: https://www.videolan.org/vlc/index.de.html
+
+Adobe Acrobat Reader DC 64Bit [Offline Installer Version]: https://it-blogger.net/adobe-reader-offline-installer-fuer-windows-und-macos/
+
+Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download/manual.jsp
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Deutsch:
@@ -103,3 +117,18 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 
 Bei Fragen oder Support wenden Sie sich bite an den Skriptautor.
 
+
+
+### Programme hier herunterladen: ### Download the Programs:
+
+Mozilla Firefox: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=de
+
+Mozilla Thunderbird: https://download.mozilla.org/?product=thunderbird-latest&os=win64&lang=de
+
+Google Chrome [Standalone] : https://www.google.com/intl/de/chrome/thank-you.html?standalone=1&statcb=0&installdataindex=empty&defaultbrowser=0
+
+VLC - Media Player: https://www.videolan.org/vlc/index.de.html
+
+Adobe Acrobat Reader DC 64Bit [Offline Installer Version]: https://it-blogger.net/adobe-reader-offline-installer-fuer-windows-und-macos/
+
+Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download/manual.jsp
