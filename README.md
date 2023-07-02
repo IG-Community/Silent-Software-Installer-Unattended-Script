@@ -44,7 +44,7 @@ The script checks if each software is already installed on the system and skips 
 This script is provided as-is and without warranty. Please ensure that you have the necessary legal rights and permissions to install the software applications using this script.
 
 ## Version History
-
+- Version 4.0.0: Optical Overhaul and Translate to German
 - Version 3.5.0: Added support for Oracle Java Runtime Environment installation and updated menu options.
 - Version 3.0.0: Initial release with support for Firefox, Chrome, Thunderbird, VLC, and Adobe Reader DC installations.
 
@@ -110,6 +110,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige So􀅌ware bereits installiert ist."
 
 ## Versionsgeschichte
+- Version 4.0.0: Optische Überarbeitung und Übersetzung auf Deutsch.
 - Version 3.5.0: Aktualisierte Menüoptionen.
 - Version 3.0.0: Code-Überarbeitung mit neuen Funktionen: Software-Installationsprüfung und Dateierkennung
 - Version 2.0.0: Menüoption und Unterstützung für Oracle Java Runtime Environment hinzugefügt
