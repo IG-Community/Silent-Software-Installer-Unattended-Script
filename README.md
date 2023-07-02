@@ -2,7 +2,7 @@
 
 # Silent Software Installer | Unattended Script
 
-**Version:** 3.5.0
+**Version:** 4.0.0
 
 ## Description
 
@@ -70,7 +70,7 @@ Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download
 
 # Silent Software Installer | Unattended Script
 
-Version: 3.5.0
+Version: 4.0.0
 
 ## Beschreibung
 
