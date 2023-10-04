@@ -2,7 +2,7 @@
 
 # Silent Software Installer | Unattended Script
 
-**Version:** 4.0.0
+**Version:** 5.0.0
 
 ## Description
 
@@ -34,8 +34,8 @@ The script checks if each software is already installed on the system and skips 
 - Quit: Exits the script.
 
 ## Notes
-
-- The script assumes that the installation files for each software are located in the specified directory (.\Setups\).
+- The script assumes that the background and ICON files are located in the specified directory (`.\Data\`).
+- The script assumes that the installation files for each software are located in the specified directory (`.\Files\`).
 - If an installation file is not found, an error message will be displayed.
 - The script checks if each software is already installed using the registry information.
 
@@ -44,6 +44,7 @@ The script checks if each software is already installed on the system and skips 
 This script is provided as-is and without warranty. Please ensure that you have the necessary legal rights and permissions to install the software applications using this script.
 
 ## Version History
+- Version 5.0.0: Fully Overhaul with New GUI overlay
 - Version 4.0.0: Optical Overhaul and Translate to German
 - Version 3.5.0: Added support for Oracle Java Runtime Environment installation and updated menu options.
 - Version 3.0.0: Initial release with support for Firefox, Chrome, Thunderbird, VLC, and Adobe Reader DC installations.
@@ -70,7 +71,7 @@ Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download
 
 # Silent Software Installer | Unattended Script
 
-Version: 4.0.0
+Version: 5.0.0
 
 ## Beschreibung
 
@@ -102,14 +103,16 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 2. Unbeaufsichtigte Installation ohne Java und Thunderbird.
 3. Unbeaufsichtigte Installation mit Java.
 4. Unbeaufsichtigte Installation mit Java, aber ohne Thunderbird.
-0. Beenden: Beendet das Skript.
+5. Readme
 
 ## Hinweise
-- Das Skript geht davon aus, dass sich die Installationsdateien für jede Software im angegebenen Verzeichnis (`.\Setups\`) befinden.
+- Das Skript geht davon aus, dass sich die Background und ICON Dateien im angegebenen Verzeichnis (`.\Data\`) befinden.
+- Das Skript geht davon aus, dass sich die Installationsdateien für jede Software im angegebenen Verzeichnis (`.\Files\`) befinden.
 - Wenn eine Installationsdatei nicht gefunden wird, wird eine Fehlermeldung angezeigt.
-- Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige So􀅌ware bereits installiert ist."
+- Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige Software bereits installiert ist."
 
 ## Versionsgeschichte
+- Version 5.0.0: Vollständige Überarbeitung mit der ersten eigenen GUI
 - Version 4.0.0: Optische Überarbeitung und Übersetzung auf Deutsch.
 - Version 3.5.0: Aktualisierte Menüoptionen.
 - Version 3.0.0: Code-Überarbeitung mit neuen Funktionen: Software-Installationsprüfung und Dateierkennung
