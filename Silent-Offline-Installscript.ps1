@@ -1,3 +1,4 @@
+# Laden der benötigten DLLs
 Add-Type -Name Window -Namespace Console -MemberDefinition '
 [DllImport("Kernel32.dll")]
 public static extern IntPtr GetConsoleWindow();
@@ -5,321 +6,226 @@ public static extern IntPtr GetConsoleWindow();
 [DllImport("user32.dll")]
 public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);'
 
+# Verstecken der Konsole
 [Console.Window]::ShowWindow([Console.Window]::GetConsoleWindow(), 0)
-<# 
-.NAME
-    SilentInstaller
-#>
+
+# Initialisierung der Windows Forms
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
-$SilentInstaller                 = New-Object system.Windows.Forms.Form
-$SilentInstaller.ClientSize      = New-Object System.Drawing.Point(920,440)
-$SilentInstaller.text            = "Silent Software Installer"
-$SilentInstaller.TopMost         = $false
-$SilentInstaller.icon            = "Data\install.ico"
-$SilentInstallerImage            = [system.drawing.image]::FromFile("Data\Background.bmp")
+function New-Button {
+    param (
+        [string]$text,
+        [int]$x,
+        [int]$y,
+        [int]$width,
+        [int]$height,
+        [string]$name
+    )
+
+    $button = New-Object System.Windows.Forms.Button
+    $button.Text = $text
+    $button.Width = $width
+    $button.Height = $height
+    $button.Location = New-Object System.Drawing.Point($x, $y)
+    $button.Font = New-Object System.Drawing.Font('Microsoft Sans Serif', 11, [System.Drawing.FontStyle]::Bold)
+    $button.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
+    $button.Name = $name
+
+    return $button
+}
+
+# Funktion zur Erstellung von Labels
+function New-Label {
+    param (
+        [int]$x,
+        [int]$y,
+        [int]$width,
+        [string]$name
+    )
+
+    $label = New-Object System.Windows.Forms.Label
+    $label.AutoSize = $true
+    $label.Width = $width
+    $label.Height = 10
+    $label.Location = New-Object System.Drawing.Point($x, $y)
+    $label.Font = New-Object System.Drawing.Font('Microsoft Sans Serif', 15, [System.Drawing.FontStyle]::Bold)
+    $label.ForeColor = [System.Drawing.Color]::Black
+    $label.BackColor = [System.Drawing.Color]::Transparent
+    $label.Name = $name
+
+    return $label
+}
+
+# Erstellen des Hauptfensters
+$SilentInstaller = New-Object System.Windows.Forms.Form
+$SilentInstaller.ClientSize = New-Object System.Drawing.Point(920, 440)
+$SilentInstaller.Text = "Silent Software Installer"
+$SilentInstaller.TopMost = $false
+$SilentInstaller.Icon = "Data\install.ico"
+$SilentInstallerImage = [System.Drawing.Image]::FromFile("Data\Background.bmp")
 $SilentInstaller.BackgroundImage = $SilentInstallerImage
-$SilentInstaller.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
+$SilentInstaller.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
 $SilentInstaller.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedSingle
-$SilentInstaller.MaximizeBox     = $false
-$SilentInstaller.MinimizeBox     = $false
+$SilentInstaller.MaximizeBox = $false
+$SilentInstaller.MinimizeBox = $false
 
-$Button1                         = New-Object system.Windows.Forms.Button
-$Button1.text                    = "Vollständig ohne Java"
-$Button1.width                   = 250
-$Button1.height                  = 40
-$Button1.location                = New-Object System.Drawing.Point(20,140)
-$Button1.Font                    = New-Object System.Drawing.Font('Britannic',11,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$Button1.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
+# Erstellen von Schaltflächen und Labels mit den erstellten Funktionen
+$Button1 = New-Button -text "Vollständig ohne Java" -x 28 -y 140 -width 240 -height 40 -name "Button1"
+$Button2 = New-Button -text "Vollständig ohne Java und Tb" -x 28 -y 190 -width 240 -height 40 -name "Button2"
+$Button3 = New-Button -text "Vollständige Installation" -x 28 -y 240 -width 240 -height 40 -name "Button3"
+$Button4 = New-Button -text "Vollständig ohne Thunderbird" -x 28 -y 290 -width 240 -height 40 -name "Button4"
+$Button5 = New-Button -text "Readme" -x 28 -y 370 -width 240 -height 40 -name "Button5"
 
-$Button2                         = New-Object system.Windows.Forms.Button
-$Button2.text                    = "ohne Java und Thunderbird"
-$Button2.width                   = 250
-$Button2.height                  = 40
-$Button2.location                = New-Object System.Drawing.Point(20,200)
-$Button2.Font                    = New-Object System.Drawing.Font('Britannic',11,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$Button2.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
+$LabelFirefox = New-Label -x 640 -y 166 -width 200 -name "LabelFirefox"
+$LabelChrome = New-Label -x 640 -y 206 -width 200 -name "LabelChrome"
+$LabelThunderbird = New-Label -x 640 -y 246 -width 200 -name "LabelThunderbird"
+$LabelVLC = New-Label -x 640 -y 286 -width 200 -name "LabelVLC"
+$LabelAdobe = New-Label -x 640 -y 326 -width 200 -name "LabelAdobe"
+$LabelJava = New-Label -x 640 -y 366 -width 200 -name "LabelJava"
+$LabelStatus = New-Label -x 580 -y 45 -width 25 -name "Label8"
+$LabelStatus.Text = "Initialisierung"
+$LabelStatus.Font = New-Object System.Drawing.Font('Microsoft Sans Serif', 26)
+$LabelStatus.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("Cyan")
 
-$Button3                         = New-Object system.Windows.Forms.Button
-$Button3.text                    = "Vollständige Installation"
-$Button3.width                   = 250
-$Button3.height                  = 40
-$Button3.location                = New-Object System.Drawing.Point(20,260)
-$Button3.Font                    = New-Object System.Drawing.Font('Britannic',11,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$Button3.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
+# Hinzufügen der Steuerelemente zum Hauptfenster
+$SilentInstaller.controls.AddRange(@($Button1,$Button2,$Button3,$Button4,$Button5,$LabelFirefox,$LabelChrome,$LabelThunderbird,$LabelVLC,$LabelAdobe,$LabelJava,$LabelStatus))
 
-$Button4                         = New-Object system.Windows.Forms.Button
-$Button4.text                    = "Vollständig ohne Thunderbird"
-$Button4.width                   = 250
-$Button4.height                  = 40
-$Button4.location                = New-Object System.Drawing.Point(20,320)
-$Button4.Font                    = New-Object System.Drawing.Font('Britannic',11,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$Button4.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
-
-$Button5                         = New-Object system.Windows.Forms.Button
-$Button5.text                    = "Readme"
-$Button5.width                   = 250
-$Button5.height                  = 40
-$Button5.location                = New-Object System.Drawing.Point(20,380)
-$Button5.Font                    = New-Object System.Drawing.Font('Britannic',11,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$Button5.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
-
-$LabelFirefox                    = New-Object system.Windows.Forms.Label
-$LabelFirefox.text               = ""
-$LabelFirefox.AutoSize           = $true
-$LabelFirefox.width              = 200
-$LabelFirefox.height             = 20
-$LabelFirefox.location           = New-Object System.Drawing.Point(640,180)
-$LabelFirefox.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',15,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$LabelFirefox.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("")
-$LabelFirefox.BackColor          = [System.Drawing.Color]::Transparent
-
-$LabelChrome                     = New-Object system.Windows.Forms.Label
-$LabelChrome.text                = ""
-$LabelChrome.AutoSize            = $true
-$LabelChrome.width               = 200
-$LabelChrome.height              = 10
-$LabelChrome.location            = New-Object System.Drawing.Point(640,220)
-$LabelChrome.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',15,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$LabelChrome.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("")
-$LabelChrome.BackColor           = [System.Drawing.Color]::Transparent
-
-$LabelThunderbird                = New-Object system.Windows.Forms.Label
-$LabelThunderbird.text           = ""
-$LabelThunderbird.AutoSize       = $true
-$LabelThunderbird.width          = 200
-$LabelThunderbird.height         = 10
-$LabelThunderbird.location       = New-Object System.Drawing.Point(640,260)
-$LabelThunderbird.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',15,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$LabelThunderbird.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("")
-$LabelThunderbird.BackColor      = [System.Drawing.Color]::Transparent
-
-$LabelVLC                        = New-Object system.Windows.Forms.Label
-$LabelVLC.text                   = ""
-$LabelVLC.AutoSize               = $true
-$LabelVLC.width                  = 200
-$LabelVLC.height                 = 10
-$LabelVLC.location               = New-Object System.Drawing.Point(640,300)
-$LabelVLC.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',15,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$LabelVLC.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("")
-$LabelVLC.BackColor              = [System.Drawing.Color]::Transparent
-
-$LabelAdobe                      = New-Object system.Windows.Forms.Label
-$LabelAdobe.text                 = ""
-$LabelAdobe.AutoSize             = $true
-$LabelAdobe.width                = 200
-$LabelAdobe.height               = 10
-$LabelAdobe.location             = New-Object System.Drawing.Point(640,340)
-$LabelAdobe.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',15,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$LabelAdobe.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("")
-$LabelAdobe.BackColor            = [System.Drawing.Color]::Transparent
-
-$LabelJava                       = New-Object system.Windows.Forms.Label
-$LabelJava.text                  = ""
-$LabelJava.AutoSize              = $true
-$LabelJava.width                 = 200
-$LabelJava.height                = 10
-$LabelJava.location              = New-Object System.Drawing.Point(640,380)
-$LabelJava.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',15,[System.Drawing.FontStyle]([System.Drawing.FontStyle]::Bold))
-$LabelJava.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("")
-$LabelJava.BackColor             = [System.Drawing.Color]::Transparent
-
-$Label8                          = New-Object system.Windows.Forms.Label
-$Label8.text                     = "Initialisierung"
-$Label8.AutoSize                 = $true
-$Label8.width                    = 25
-$Label8.height                   = 10
-$Label8.location                 = New-Object System.Drawing.Point(580,45)
-$Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',28)
-$Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("White")
-$Label8.BackColor                = [System.Drawing.Color]::Transparent
-
-$SilentInstaller.controls.AddRange(@($Button1,$Button2,$Button3,$Button4,$Button5,$Panel1,$LabelFirefox,$LabelChrome,$LabelThunderbird,$LabelVLC,$LabelAdobe,$LabelJava,$Label8))
-
-#region Logic 
-
-$Button1.Add_Click({InstallVersion1})
-$Button2.Add_Click({InstallVersion2})
-$Button3.Add_Click({InstallVersion3})
-$Button4.Add_Click({InstallVersion4})
-$Button5.Add_Click({Readme})
-
-$Firefox = {  
-    if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Firefox" }) {
-        $LabelFirefox.Text = "Ist bereits Installiert"
-        $LabelFirefox.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-      }
-      else {
-          if (Test-Path .\Files\Firefox*.exe -PathType Leaf) {
-              $LabelFirefox.Text = "Installiere..."
-              $LabelFirefox.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-              Start-Process -Wait -FilePath .\Files\Firefox*.exe -Argument "-ms -ma" -PassThru | Out-Null
-              $LabelFirefox.Text = "Installiert"
-              $LabelFirefox.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-          }
-          else {
-              $LabelFirefox.Text = "FEHLER"
-              $LabelFirefox.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-          }
-      }
-    }
-
-$Chrome = {
-  $chromePath = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty '(Default)'
-    if ($chromePath -ne $null) {
-    $LabelChrome.Text = "Ist bereits Installiert"
-    $LabelChrome.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-}
-else {
-    if (Test-Path .\Files\chrome*.exe -PathType Leaf) {
-        $LabelChrome.Text = "Installiere..."
-        $LabelChrome.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-        Start-Process -Wait -FilePath .\Files\chrome*.exe -Argument "/silent /install" -PassThru | Out-Null
-        $LabelChrome.Text = "Installiert"
-        $LabelChrome.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-    }
-    else {
-        $LabelChrome.Text = "FEHLER"
-        $LabelChrome.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-    }
-}
-}
-
-$Thunderbird = {
-    if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Thunderbird" }) {
-        $LabelThunderbird.Text = "Ist bereits Installiert"
-        $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-  }
-  else {
-      if (Test-Path .\Files\thunderbird*.exe -PathType Leaf) {
-        $LabelThunderbird.Text = "Installiere..."
-        $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-        Start-Process -Wait -FilePath .\Files\thunderbird*.exe -Argument "/S /quiet" -PassThru | Out-Null
-        $LabelThunderbird.Text = "Installiert"
-        $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-      }
-      else {
-        $LabelThunderbird.Text = "FEHLER"
-        $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-      }
-  }
-}
-
-$VLC = {
-  if (Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "VLC" }) {
-    $LabelVLC.Text = "Ist bereits Installiert"
-    $LabelVLC.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-  }
-  else {
-      if (Test-Path .\Files\vlc*.exe -PathType Leaf) {
-        $LabelVLC.Text = "Installiere..."
-        $LabelVLC.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-        Start-Process -Wait -FilePath .\Files\vlc*.exe -Argument "/S /L=1031" -PassThru | Out-Null
-        $LabelVLC.Text = "Installiert"
-        $LabelVLC.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-      }
-      else {
-        $LabelVLC.Text = "FEHLER"
-        $LabelVLC.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-      }
-  }
-}
-
-$AdobeReaderDC = {
-  if(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -Match "Adobe" }) {
-    $LabelAdobe.Text = "Ist bereits Installiert"
-    $LabelAdobe.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-  }
-  else {
-      if (Test-Path .\Files\AcroRdrDC*.exe -PathType Leaf) {
-        $LabelAdobe.Text = "Installiere..."
-        $LabelAdobe.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-        Start-Process -Wait -FilePath .\Files\AcroRdrDC*.exe -Argument "/sAll /rs /msi EULA_ACCEPT=YES" -PassThru | Out-Null
-        $LabelAdobe.Text = "Installiert"
-        $LabelAdobe.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-      }
-      else {
-        $LabelAdobe.Text = "FEHLER"
-        $LabelAdobe.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-      }
-  }
-}
-
-$Java = {
-  if(Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -Match "Java" }) {
-    $LabelJava.Text = "Ist bereits Installiert"
-    $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-  }
-  else {
-      if(Test-Path .\Files\jre*.exe -PathType Leaf) {
-        $LabelJava.Text = "Installiere..."
-        $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-        Start-Process -Wait -FilePath .\Files\jre*.exe -Argument "/s" -PassThru | Out-Null
-        $LabelJava.Text = "Installiert"
-        $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
-     }
-     else {
-        $LabelJava.Text = "FEHLER"
-        $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-        }
-    }
-}
-
-function InstallVersion1{
-            $Label8.text                     = "Installiere..."  
-            & $Firefox
-            & $Chrome
-            & $Thunderbird
-            & $VLC
-            & $AdobeReaderDC
-            $LabelJava.Text = "Übersprungen"
-            $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-            $Label8.text                     = "Abgeschlossen"
-}
-function InstallVersion2{
-            $Label8.text                     = "Installiere..."
-            & $Firefox
-            & $Chrome
-            $LabelThunderbird.Text = "Übersprungen"
-            $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-            & $VLC
-            & $AdobeReaderDC
-            $LabelJava.Text = "Übersprungen"
-            $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-            $Label8.text                     = "Abgeschlossen"
-}
-
-function InstallVersion3{
-            $Label8.text                     = "Installiere..."
-            & $Firefox
-            & $Chrome
-            & $Thunderbird
-            & $VLC
-            & $AdobeReaderDC
-            & $Java
-            $Label8.text                     = "Abgeschlossen"
-}
-
-function InstallVersion4{
-            $Label8.text                     = "Installiere..."
-            & $Firefox
-            & $Chrome
-            $LabelThunderbird.Text = "Übersprungen"
-            $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
-            & $VLC
-            & $AdobeReaderDC
-            & $Java
-            $Label8.text                     = "Abgeschlossen"
-}
-
-function Readme{
-            Start-Process "https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script"
-}
-
-$null = $form.Add_Shown({
-  $form.Size = $form.Size
+# Konfiguration der einzelen Buttons
+$Button1.Add_Click({
+  labelclear
+  Firefox
+  Chrome
+  Thunderbird
+  VLC
+  AdobeReaderDC
+  $LabelJava.Text        = "Übersprungen"
+  $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+  $LabelStatus.Text      = "Abgeschlossen"
 })
 
-#endregion
+$Button2.Add_Click({
+  labelclear
+  Firefox
+  Chrome
+  $LabelThunderbird.Text        = "Übersprungen"
+  $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+  VLC
+  AdobeReaderDC
+  $LabelJava.Text        = "Übersprungen"
+  $LabelJava.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+  $LabelStatus.Text      = "Abgeschlossen"
+})
+
+$Button3.Add_Click({
+  labelclear
+  Firefox
+  Chrome
+  Thunderbird
+  VLC
+  AdobeReaderDC
+  Java
+  $LabelStatus.Text      = "Abgeschlossen"
+})
+
+$Button4.Add_Click({
+  labelclear
+  Firefox
+  Chrome
+  $LabelThunderbird.Text        = "Übersprungen"
+  $LabelThunderbird.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+  VLC
+  AdobeReaderDC
+  Java
+  $LabelStatus.Text      = "Abgeschlossen"
+})
+
+$Button5.Add_Click({
+  Start-Process "https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script"
+})
+
+#Vorbereitungen der Indiviuellen Installationsdatein
+function Firefox {  
+  $checkCommand = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Firefox" }
+  $installCommand = ".\Files\Firefox*.exe"
+  $installArguments = "-ms -ma"
+  Install-Software $installCommand $installArguments "LabelFirefox" $checkCommand
+}
+
+function Chrome {
+  $checkCommand =  Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty '(Default)'
+  $installCommand = ".\Files\chrome*.exe"
+  $installArguments = "/silent /install"
+  Install-Software $installCommand $installArguments "LabelChrome" $checkCommand
+}
+
+function Thunderbird {
+  $checkCommand = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "Thunderbird" }
+  $installCommand = ".\Files\Thunderbird*.exe"
+  $installArguments = "/S /quiet"
+  Install-Software $installCommand $installArguments "LabelThunderbird" $checkCommand
+}
+
+function VLC {
+  $checkCommand = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -match "VLC" }
+  $installCommand = ".\Files\vlc*.exe"
+  $installArguments = "/S /L=1031"
+  Install-Software $installCommand $installArguments "LabelVLC" $checkCommand
+
+}
+
+function AdobeReaderDC {
+  $checkCommand = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -Match "Adobe" }
+  $installCommand = ".\Files\AcroRdrDC*.exe"
+  $installArguments = "/sAll /rs /msi EULA_ACCEPT=YES"
+  Install-Software $installCommand $installArguments "LabelAdobe" $checkCommand
+}
+
+function Java {
+  $checkCommand = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -Match "Java" }
+  $installCommand = ".\Files\jre*.exe"
+  $installArguments = "/s"
+  Install-Software $installCommand $installArguments "LabelJava" $checkCommand
+}
+
+function labelclear {
+  $LabelStatus.Text      = "In Bearbeitung.."
+  $LabelFirefox.Text     = ""
+  $LabelChrome.Text      = ""
+  $LabelThunderbird.Text = ""
+  $LabelVLC.Text         = ""
+  $LabelAdobe.Text       = ""
+  $LabelJava.Text        = ""
+}
+
+#Durchführung der Installation
+function Install-Software {
+  param (
+      [string]$installCommand,
+      [string]$installArguments,
+      [string]$labelVariable,
+      [object]$checkCommand
+  )
+
+  $label = $SilentInstaller.Controls.Find($labelVariable, $true)[0]
+  $label.Text = "Überprüfe Installation..."
+  $label.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+
+  if ($checkCommand) {
+      $label.Text = "Ist bereits installiert"
+      $label.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#00A100")
+  } elseif (Test-Path $installCommand -PathType Leaf) {
+      $label.Text = "Installiere..."
+      $label.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+      Start-Process -Wait -FilePath $installCommand -ArgumentList $installArguments -PassThru | Out-Null
+      $label.Text = "Installiert"
+      $label.ForeColor = [System.Drawing.ColorTranslator]::FromHtml
+  }
+  else {
+      $label.Text = "Installationsdatei fehlt"
+      $label.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#a31f1f")
+  }
+}
+
+# Anzeige des Hauptfensters
 [void]$SilentInstaller.ShowDialog()
