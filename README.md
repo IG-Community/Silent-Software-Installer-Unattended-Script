@@ -21,7 +21,7 @@ The script checks if each software is already installed on the system and skips 
 
 1. Run the script in a PowerShell environment.
 2. The script will display a menu with options for different installation configurations.
-3. Select the desired option by entering the corresponding number.
+3. Select the desired option by entering the Button.
 4. The script will install the selected software silently without any further user interaction.
 5. Once the installation process is completed, a confirmation message will be displayed.
 
@@ -34,7 +34,6 @@ The script checks if each software is already installed on the system and skips 
 - Quit: Exits the script.
 
 ## Notes
-- The script assumes that the background and ICON files are located in the specified directory (`.\Data\`).
 - The script assumes that the installation files for each software are located in the specified directory (`.\Files\`).
 - If an installation file is not found, an error message will be displayed.
 - The script checks if each software is already installed using the registry information.
@@ -94,7 +93,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 ## Verwendung
 1. Führen Sie die Silent_installer.exe aus.
 2. Das Skript zeigt ein Menü mit Optionen für verschiedene Installationskonfigurationen an.
-3. Wählen Sie die gewünschte Op􀆟on aus, indem Sie die entsprechende Nummer eingeben.
+3. Wählen Sie die gewünschte Option aus in dem Sie den entsprechend Button betätigen.
 4. Das Skript installiert die ausgewählte Software im Hintergrund, ohne dass der Benutzer eingreifen muss.
 5. Sobald der Installationsvorgang abgeschlossen ist, wird eine Bestätigungsmeldung angezeigt.
 
@@ -106,7 +105,6 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 5. Readme
 
 ## Hinweise
-- Das Skript geht davon aus, dass sich die Background und ICON Dateien im angegebenen Verzeichnis (`.\Data\`) befinden.
 - Das Skript geht davon aus, dass sich die Installationsdateien für jede Software im angegebenen Verzeichnis (`.\Files\`) befinden.
 - Wenn eine Installationsdatei nicht gefunden wird, wird eine Fehlermeldung angezeigt.
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige Software bereits installiert ist."
@@ -122,7 +120,6 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 Bei Fragen oder Support wenden Sie sich bite an den Skriptautor.
 
 
-
 ### Programme hier herunterladen: ### Download the Programs:
 
 Mozilla Firefox: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=de
@@ -136,3 +133,9 @@ VLC - Media Player: https://www.videolan.org/vlc/index.de.html
 Adobe Acrobat Reader DC 64Bit [Offline Installer Version]: https://it-blogger.net/adobe-reader-offline-installer-fuer-windows-und-macos/
 
 Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download/manual.jsp
+
+## Dunkle Version / Dark Version
+![Dark](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/50f30b07-481e-405c-9863-694a518d5a39)
+
+## Helle Version / Light Version
+![Light](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/61f00447-89a2-41f3-8d05-806217978fc6)
