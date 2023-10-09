@@ -62,20 +62,32 @@ $SilentInstaller = New-Object System.Windows.Forms.Form
 $SilentInstaller.ClientSize = New-Object System.Drawing.Point(920, 440)
 $SilentInstaller.Text = "Silent Software Installer"
 $SilentInstaller.TopMost = $false
-$SilentInstaller.Icon = "Data\install.ico"
-$SilentInstallerImage = [System.Drawing.Image]::FromFile("Data\Background.bmp")
-$SilentInstaller.BackgroundImage = $SilentInstallerImage
+
+$base64Icon = @"
+BASE64-DATEN-FÜR-IHR-HINTERGRUNDBILD-HIER
+"@
+$iconBytes = [System.Convert]::FromBase64String($base64Icon)
+$memoryStreamIcon = [System.IO.MemoryStream]::new($iconBytes)
+$icon = [System.Drawing.Icon]::new($memoryStreamIcon)
+$SilentInstaller.Icon = $icon
+
+$base64Image = @"
+BASE64-DATEN-FÜR-IHRE-ICO-DATEI-HIER
+"@
+$memoryStreamImage = [System.IO.MemoryStream]::new([System.Convert]::FromBase64String($base64Image))
+$backgroundImage = [System.Drawing.Image]::FromStream($memoryStreamImage)
+$SilentInstaller.BackgroundImage = $backgroundImage
 $SilentInstaller.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#eff4ff")
 $SilentInstaller.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedSingle
 $SilentInstaller.MaximizeBox = $false
 $SilentInstaller.MinimizeBox = $false
 
 # Erstellen von Schaltflächen und Labels mit den erstellten Funktionen
-$Button1 = New-Button -text "Vollständig ohne Java" -x 28 -y 140 -width 240 -height 40 -name "Button1"
-$Button2 = New-Button -text "Vollständig ohne Java und Tb" -x 28 -y 190 -width 240 -height 40 -name "Button2"
-$Button3 = New-Button -text "Vollständige Installation" -x 28 -y 240 -width 240 -height 40 -name "Button3"
-$Button4 = New-Button -text "Vollständig ohne Thunderbird" -x 28 -y 290 -width 240 -height 40 -name "Button4"
-$Button5 = New-Button -text "Readme" -x 28 -y 370 -width 240 -height 40 -name "Button5"
+$Button1 = New-Button -text "Vollständig ohne Java" -x 10 -y 140 -width 240 -height 40 -name "Button1"
+$Button2 = New-Button -text "Vollständig ohne Java und Tb" -x 10 -y 190 -width 240 -height 40 -name "Button2"
+$Button3 = New-Button -text "Vollständige Installation" -x 10 -y 240 -width 240 -height 40 -name "Button3"
+$Button4 = New-Button -text "Vollständig ohne Thunderbird" -x 10 -y 290 -width 240 -height 40 -name "Button4"
+$Button5 = New-Button -text "Readme" -x 10 -y 385 -width 240 -height 40 -name "Button5"
 
 $LabelFirefox = New-Label -x 640 -y 166 -width 200 -name "LabelFirefox"
 $LabelChrome = New-Label -x 640 -y 206 -width 200 -name "LabelChrome"
@@ -86,7 +98,7 @@ $LabelJava = New-Label -x 640 -y 366 -width 200 -name "LabelJava"
 $LabelStatus = New-Label -x 580 -y 45 -width 25 -name "Label8"
 $LabelStatus.Text = "Initialisierung"
 $LabelStatus.Font = New-Object System.Drawing.Font('Microsoft Sans Serif', 26)
-$LabelStatus.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("Cyan")
+$LabelStatus.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("Blue")
 
 # Hinzufügen der Steuerelemente zum Hauptfenster
 $SilentInstaller.controls.AddRange(@($Button1,$Button2,$Button3,$Button4,$Button5,$LabelFirefox,$LabelChrome,$LabelThunderbird,$LabelVLC,$LabelAdobe,$LabelJava,$LabelStatus))
@@ -229,3 +241,5 @@ function Install-Software {
 
 # Anzeige des Hauptfensters
 [void]$SilentInstaller.ShowDialog()
+$memoryStreamImage.Dispose()
+$memoryStreamIcon.Dispose()
