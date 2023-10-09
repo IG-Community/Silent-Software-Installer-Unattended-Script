@@ -134,8 +134,8 @@ Adobe Acrobat Reader DC 64Bit [Offline Installer Version]: https://it-blogger.ne
 
 Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download/manual.jsp
 
-## Dunkle Version / Dark Version
+## Dunkle Version
 ![Dark](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/50f30b07-481e-405c-9863-694a518d5a39)
 
-## Helle Version / Light Version
+## Helle Version
 ![Light](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/61f00447-89a2-41f3-8d05-806217978fc6)
