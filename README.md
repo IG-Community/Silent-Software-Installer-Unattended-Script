@@ -43,7 +43,7 @@ The script checks if each software is already installed on the system and skips 
 This script is provided as-is and without warranty. Please ensure that you have the necessary legal rights and permissions to install the software applications using this script.
 
 ## Version History
-- Version 5.0.0: Fully Overhaul with New GUI overlay
+- Version 5.0.0: rename creator, change filepath
 - Version 4.0.0: Optical Overhaul and Translate to German
 - Version 3.5.0: Added support for Oracle Java Runtime Environment installation and updated menu options.
 - Version 3.0.0: Initial release with support for Firefox, Chrome, Thunderbird, VLC, and Adobe Reader DC installations.
@@ -63,13 +63,6 @@ VLC - Media Player: https://www.videolan.org/vlc/index.de.html
 Adobe Acrobat Reader DC 64Bit [Offline Installer Version]: https://it-blogger.net/adobe-reader-offline-installer-fuer-windows-und-macos/
 
 Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download/manual.jsp
-
-## Dark Version
-![DarkENG](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/75262001-bca5-4a32-8609-7c0290c3ec81)
-
-## Light Version
-![LightENG](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/24f93c74-e6f1-4d90-b68c-e165bdde0015)
-
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -117,7 +110,7 @@ Andernfalls sucht es im angegebenen Verzeichnis nach den Installationsdateien un
 - Das Skript prüft anhand der Registrierungsinformationen, ob die jeweilige Software bereits installiert ist."
 
 ## Versionsgeschichte
-- Version 5.0.0: Vollständige Überarbeitung mit der ersten eigenen GUI
+- Version 5.0.0: Umbenennung des Erstellers und Änderung der Verzeichnisstruktur
 - Version 4.0.0: Optische Überarbeitung und Übersetzung auf Deutsch.
 - Version 3.5.0: Aktualisierte Menüoptionen.
 - Version 3.0.0: Code-Überarbeitung mit neuen Funktionen: Software-Installationsprüfung und Dateierkennung
@@ -140,9 +133,3 @@ VLC - Media Player: https://www.videolan.org/vlc/index.de.html
 Adobe Acrobat Reader DC 64Bit [Offline Installer Version]: https://it-blogger.net/adobe-reader-offline-installer-fuer-windows-und-macos/
 
 Java Runtime Environment 8 [Offline Installer]: https://www.java.com/de/download/manual.jsp
-
-## Dunkle Version
-![Dark](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/50f30b07-481e-405c-9863-694a518d5a39)
-
-## Helle Version
-![Light](https://github.com/IG-Community/Silent-Software-Installer-Unattended-Script/assets/30149483/61f00447-89a2-41f3-8d05-806217978fc6)
