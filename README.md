@@ -1,3 +1,7 @@
+
+
+![SilentInstaller](https://github.com/SD-ITLab/Silent-Software-Installer-Unattended-Script/assets/30149483/5c219f09-bd38-4641-94bf-ef2a04fb1ed3)
+
 # English:
 
 # Silent Software Installer | Unattended Script
